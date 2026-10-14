@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
+import plotly.io as pio
 
 st.set_page_config(
     page_title="Farmacias Valle Dashboard",
@@ -9,7 +10,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-
+pio.templates.default = "plotly_white"
 
 # ====================================================
 # FORZAR TEMA CLARO
@@ -18,106 +19,95 @@ st.set_page_config(
 st.markdown("""
 <style>
 
-/* Fondo general */
-.stApp {
-    background-color: #FFFFFF !important;
+/* Fondo principal */
+.stApp{
+    background-color:#FFFFFF !important;
 }
 
 /* Contenedor principal */
-.main .block-container {
-    background-color: #FFFFFF !important;
+.main{
+    background-color:#FFFFFF !important;
+}
+
+/* Área central */
+section.main > div{
+    backgrou*d-color:#FFFFFF !important;
 }
 
 /* Sidebar */
-section[data-testid="stSidebar"] {
-    background-color: #F5F7FA !important;
+section[data-testid="stSidebar"]{
+    background-color:#F3F4F6 !important;
 }
 
-/* Header */
-header[data-testid="stHeader"]{
-    background: white !important;
-}
-
-/* Todos los textos */
-html,
+/* Todo el texto */
 body,
 p,
 span,
 label,
 div,
 h1,
-h2,
+h*,
 h3,
 h4,
 h5,
-h6 {
-    color:#1F2937 !important;
+h6*{
+*   color:#111827 !important;
 }
 
-/* Inputs */
-.stTextInput input,
-.stDateInput input,
-.stNumberInput input {
-    background:white !important;
+/* Fecha */
+.stDateInput input{
+    b*ckground:white !important;
     color:black !important;
+}
+
+/* Select */
+.stSelectbox div[data-baseweb="select"]{
+    background:white !important;
 }
 
 /* Multiselect */
-.stMultiSelect div[data-baseweb="select"] {
-    background:white !important;
-    color:black !important;
-}
-
-/* Selectbox */
-.stSelectbox div[data-baseweb="select"] {
-    background:white !important;
-    color:black !important;
-}
-
-/* Calendarios */
-[data-baseweb="calendar"] {
+.stMultiSelect div[data-baseweb="select"]{
     background:white !important;
 }
 
-/* KPIs */
+/* Opciones seleccionadas */
+div[data-baseweb="tag"]{
+    background:#3B82F6 !important;
+    color:white !important;
+}
+
+/* KPI */
 [data-testid="metric-container"]{
     background:white !important;
-    border:1px solid #E5E7EB !important;
+
+    border:1px solid #E5E7EB;
+
     border-radius:12px;
+
     padding:20px;
-    box-shadow:0 2px 4px rgba(0,0,0,.08);
+
+    box-shadow:0 2px 6px rgba(0,0,0,.08);
 }
 
-/* Valores KPI */
-[data-testid="stMetricValue"]{
-    color:#1F2937 !important;
+/* KPI centrados */
+[data-testid="metric-container"]{
+    text-align:center;
 }
 
-/* Etiquetas KPI */
 [data-testid="stMetricLabel"]{
-    color:#374151 !important;
+    justify-content:center !important;
 }
 
-/* Gráficas Plotly */
-.js-plotly-plot,
-.plotly,
-.svg-container {
-    background:white !important;
+[data-testid="stMetricValue"]{
+    justify-content:center !important;
 }
 
-/* Botones */
-button {
-    background:white !important;
-    color:black !important;
+[data-testid="stMetricDelta"]{
+    justify-content:center !important;
 }
 
 /* Dataframe */
 [data-testid="stDataFrame"]{
-    background:white !important;
-}
-
-/* Tabs */
-.stTabs{
     background:white !important;
 }
 
@@ -329,7 +319,14 @@ fig1 = px.line(
     x="Mes",
     y="Ingreso_Mensual",
     markers=True,
-    title="Tendencia mensual de ingresos"
+    title="Tendencia mensual de ingresos",
+    template="plotly_white"
+)
+
+fig1.update_layout(
+    paper_bgcolor="white",
+    plot_bgcolor="white",
+    font_color="black"
 )
 
 st.plotly_chart(fig1, use_container_width=True)
