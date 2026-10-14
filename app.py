@@ -18,68 +18,107 @@ st.set_page_config(
 st.markdown("""
 <style>
 
-/* Fondo principal */
+/* Fondo general */
 .stApp {
     background-color: #FFFFFF !important;
 }
 
-/* Contenido principal */
-.main {
+/* Contenedor principal */
+.main .block-container {
     background-color: #FFFFFF !important;
 }
 
 /* Sidebar */
-section[data-testid="stSidebar"]{
-    background-color:#F5F7FA !important;
+section[data-testid="stSidebar"] {
+    background-color: #F5F7FA !important;
 }
 
-/* Texto general */
-html, body, [class*="css"] {
+/* Header */
+header[data-testid="stHeader"]{
+    background: white !important;
+}
+
+/* Todos los textos */
+html,
+body,
+p,
+span,
+label,
+div,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     color:#1F2937 !important;
 }
 
-/* Headers */
-h1, h2, h3, h4, h5 {
-    color:#1F2937 !important;
+/* Inputs */
+.stTextInput input,
+.stDateInput input,
+.stNumberInput input {
+    background:white !important;
+    color:black !important;
 }
 
-/* Labels */
-label, p, span, div {
-    color:#1F2937 !important;
+/* Multiselect */
+.stMultiSelect div[data-baseweb="select"] {
+    background:white !important;
+    color:black !important;
+}
+
+/* Selectbox */
+.stSelectbox div[data-baseweb="select"] {
+    background:white !important;
+    color:black !important;
+}
+
+/* Calendarios */
+[data-baseweb="calendar"] {
+    background:white !important;
 }
 
 /* KPIs */
 [data-testid="metric-container"]{
-    background:white;
-    border:1px solid #E5E7EB;
+    background:white !important;
+    border:1px solid #E5E7EB !important;
     border-radius:12px;
     padding:20px;
-    box-shadow:0 2px 6px rgba(0,0,0,0.08);
+    box-shadow:0 2px 4px rgba(0,0,0,.08);
 }
 
-/* Texto KPI */
+/* Valores KPI */
 [data-testid="stMetricValue"]{
     color:#1F2937 !important;
 }
 
+/* Etiquetas KPI */
 [data-testid="stMetricLabel"]{
     color:#374151 !important;
 }
 
-[data-testid="stMetricDelta"]{
-    color:#16A34A !important;
-}
-
-/* Plotly */
-.js-plotly-plot{
+/* Gráficas Plotly */
+.js-plotly-plot,
+.plotly,
+.svg-container {
     background:white !important;
 }
 
-/* Selectbox y multiselect */
-.stMultiSelect,
-.stSelectbox,
-.stDateInput{
+/* Botones */
+button {
+    background:white !important;
     color:black !important;
+}
+
+/* Dataframe */
+[data-testid="stDataFrame"]{
+    background:white !important;
+}
+
+/* Tabs */
+.stTabs{
+    background:white !important;
 }
 
 </style>
