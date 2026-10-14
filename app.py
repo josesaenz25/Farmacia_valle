@@ -1,134 +1,16 @@
 import streamlit as st
 import pandas as pd
 import plotly.express as px
-import plotly.io as pio
+
+# ====================================================
+# CONFIGURACIÓN
+# ====================================================
 
 st.set_page_config(
     page_title="Farmacias Valle Dashboard",
     page_icon="💊",
-    layout="wide",
-    initial_sidebar_state="expanded"
+    layout="wide"
 )
-
-pio.templates.default = "plotly_white"
-
-# ====================================================
-# FORZAR TEMA CLARO
-# ====================================================
-
-st.markdown("""
-<style>
-
-/* Fondo principal */
-.stApp{
-    background-color:#FFFFFF !important;
-}
-
-/* Contenedor principal */
-.main{
-    background-color:#FFFFFF !important;
-}
-
-/* Área central */
-section.main > div{
-    backgrou*d-color:#FFFFFF !important;
-}
-
-/* Sidebar */
-section[data-testid="stSidebar"]{
-    background-color:#F3F4F6 !important;
-}
-
-/* Todo el texto */
-body,
-p,
-span,
-label,
-div,
-h1,
-h*,
-h3,
-h4,
-h5,
-h6*{
-*   color:#111827 !important;
-}
-
-/* Fecha */
-.stDateInput input{
-    b*ckground:white !important;
-    color:black !important;
-}
-
-/* Select */
-.stSelectbox div[data-baseweb="select"]{
-    background:white !important;
-}
-
-/* Multiselect */
-.stMultiSelect div[data-baseweb="select"]{
-    background:white !important;
-}
-
-/* Opciones seleccionadas */
-div[data-baseweb="tag"]{
-    background:#3B82F6 !important;
-    color:white !important;
-}
-
-/* KPI */
-[data-testid="metric-container"]{
-    background:white !important;
-
-    border:1px solid #E5E7EB;
-
-    border-radius:12px;
-
-    padding:20px;
-
-    box-shadow:0 2px 6px rgba(0,0,0,.08);
-}
-
-/* KPI centrados */
-[data-testid="metric-container"]{
-    text-align:center;
-}
-
-[data-testid="stMetricLabel"]{
-    justify-content:center !important;
-}
-
-[data-testid="stMetricValue"]{
-    justify-content:center !important;
-}
-
-[data-testid="stMetricDelta"]{
-    justify-content:center !important;
-}
-
-/* Dataframe */
-[data-testid="stDataFrame"]{
-    background:white !important;
-}
-
-</style>
-""", unsafe_allow_html=True)
-
-
-
-# Ocultar únicamente menú y footer
-
-st.markdown("""
-<style>
-#MainMenu {
-    visibility: hidden;
-}
-
-footer {
-    visibility: hidden;
-}
-</style>
-""", unsafe_allow_html=True)
 
 # ====================================================
 # CARGA DE DATOS
@@ -202,8 +84,6 @@ st.markdown(
 # Espacio antes de los KPIs
 st.markdown("<br><br><br><br>", unsafe_allow_html=True)
 
-
-
 # ====================================================
 # KPI ACTUAL VS PERIODO ANTERIOR
 # ====================================================
@@ -270,9 +150,6 @@ delta_rotacion = (
     rotacion_anterior
 ) * 100
 
-
-
-
 # ====================================================
 # KPIS
 # ====================================================
@@ -319,14 +196,7 @@ fig1 = px.line(
     x="Mes",
     y="Ingreso_Mensual",
     markers=True,
-    title="Tendencia mensual de ingresos",
-    template="plotly_white"
-)
-
-fig1.update_layout(
-    paper_bgcolor="white",
-    plot_bgcolor="white",
-    font_color="black"
+    title="Tendencia mensual de ingresos"
 )
 
 st.plotly_chart(fig1, use_container_width=True)
