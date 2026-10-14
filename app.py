@@ -9,6 +9,84 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+
+
+# ====================================================
+# FORZAR TEMA CLARO
+# ====================================================
+
+st.markdown("""
+<style>
+
+/* Fondo principal */
+.stApp {
+    background-color: #FFFFFF !important;
+}
+
+/* Contenido principal */
+.main {
+    background-color: #FFFFFF !important;
+}
+
+/* Sidebar */
+section[data-testid="stSidebar"]{
+    background-color:#F5F7FA !important;
+}
+
+/* Texto general */
+html, body, [class*="css"] {
+    color:#1F2937 !important;
+}
+
+/* Headers */
+h1, h2, h3, h4, h5 {
+    color:#1F2937 !important;
+}
+
+/* Labels */
+label, p, span, div {
+    color:#1F2937 !important;
+}
+
+/* KPIs */
+[data-testid="metric-container"]{
+    background:white;
+    border:1px solid #E5E7EB;
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 2px 6px rgba(0,0,0,0.08);
+}
+
+/* Texto KPI */
+[data-testid="stMetricValue"]{
+    color:#1F2937 !important;
+}
+
+[data-testid="stMetricLabel"]{
+    color:#374151 !important;
+}
+
+[data-testid="stMetricDelta"]{
+    color:#16A34A !important;
+}
+
+/* Plotly */
+.js-plotly-plot{
+    background:white !important;
+}
+
+/* Selectbox y multiselect */
+.stMultiSelect,
+.stSelectbox,
+.stDateInput{
+    color:black !important;
+}
+
+</style>
+""", unsafe_allow_html=True)
+
+
+
 # Ocultar únicamente menú y footer
 
 st.markdown("""
